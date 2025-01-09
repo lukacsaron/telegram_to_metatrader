@@ -8,7 +8,7 @@ Welcome to **Telegram to MetaTrader**, the ultimate solution for automating your
 
 This project has now moved to our dedicated website:
 
-👉 **[Visit telegramtometatrader.com](https://telegramtometatrader.com)** 👈
+👉 **[Visit telegramtometatrader.com](https://telegramtometatrader.com/?utm_medium=owned&utm_source=github&utm_campaign=marketplace)** 👈
 
 Discover the latest updates, enhanced features, and comprehensive support at our new home.
 
