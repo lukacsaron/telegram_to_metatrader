@@ -1,67 +1,80 @@
-# Telegram to MetaTrader Signal Copier
+# TTMT – Telegram to MetaTrader
 
-Welcome to **Telegram to MetaTrader**, the ultimate solution for automating your trading signals. Designed specifically for traders who rely on Telegram signals, this software ensures that every trade you receive is instantly copied to your MetaTrader 4 (MT4) or MetaTrader 5 (MT5) account. Whether you're following popular providers like **Gold Trader Mo** or other signal channels, our tool eliminates the manual effort of signal copying and brings your trading to the next level.
+TTMT copies trading signals from Telegram channels into MetaTrader 4 and MetaTrader 5 accounts. It reads each channel message with an AI parser, places the orders on your broker account through a cloud connection, and manages the position afterwards. No VPS or always-on terminal is needed.
 
----
+**[telegramtometatrader.com](https://telegramtometatrader.com/?utm_medium=owned&utm_source=github&utm_campaign=marketplace)**
 
-## 📢 **Important Announcement**
+This repository is the project's public page on GitHub. TTMT is a hosted service, so there is no code to download here. The open parts live in their own repositories, listed [below](#open-repositories).
 
-This project has now moved to our dedicated website:
+## What it does
 
-👉 **[Visit telegramtometatrader.com](https://telegramtometatrader.com/?utm_medium=owned&utm_source=github&utm_campaign=marketplace)** 👈
+- **Reads the messages channels actually write.** Complete signals, alerts that are followed by details, and follow-up messages such as closing a trade or moving the stop to breakeven.
+- **Checks prices before it trades.** Signal prices are compared against the live market, and values that look like typos are rejected.
+- **Layers the entry.** An entry can be split into up to 6 layers inside the entry zone, with volume spread across up to 6 take-profit levels.
+- **Manages the trade afterwards.** Stops move to breakeven and trail, and an account halts for the day when its daily loss limit is reached.
+- **Routes one signal to several accounts.** Demo, live and prop-firm accounts, each with its own settings.
+- **Keeps a trace.** Every decision on every trade is recorded, so a result can be audited step by step.
 
-Discover the latest updates, enhanced features, and comprehensive support at our new home.
+It is built for traders who follow forex, gold and index signal channels and want the trades executed without copying them by hand. It does not pick trades and it is not a signal provider.
 
----
+## Who should not use it
 
-## 🚀 About Telegram to MetaTrader
+- You follow one channel that posts a few clean signals a week. A free copier on your own machine can be the right call, and [this page says when](https://telegramtometatrader.com/free-telegram-signal-copier?utm_medium=owned&utm_source=github&utm_campaign=marketplace).
+- You want crypto-exchange execution. TTMT trades MetaTrader accounts only.
+- You expect a copier to make a losing channel profitable. It executes what the channel posts.
 
-**Telegram to MetaTrader** is a state-of-the-art software designed for traders who want to automate their strategies. If you’ve ever wanted to:
+## Pricing
 
-- Seamlessly integrate your **Telegram signals into MetaTrader**.
-- Automatically execute trades based on your Telegram channel notifications.
-- Work with any format of trading signals, including those from channels like **Gold Trader Mo**.
+Every plan starts with a 7-day free trial, and a card is required to start it. Yearly billing costs ten months of the monthly price.
 
-This software does it all, providing you with unmatched reliability and flexibility for both MT4 and MT5 platforms.
+| Plan | Monthly | MetaTrader accounts |
+|---|---|---|
+| Essential | $39 | 1 |
+| Pro | $99 | 5 |
+| Master | $149 | 10 |
 
----
+Current plans and limits are on the [pricing section](https://telegramtometatrader.com/?utm_medium=owned&utm_source=github&utm_campaign=marketplace#pricing).
 
-## 🌟 Why Traders Love Telegram to MetaTrader
+## Measured channel data
 
-Our software isn’t just another Telegram signal copier; it’s an all-in-one solution that helps traders maximize their efficiency. Here’s what sets it apart:
+TTMT publishes what happened when its users copied each channel: closed trades, win rate, profit factor and the share of traders in profit. The figures come from executed trades on MetaTrader accounts.
 
-- **Real-Time Execution**: Instantly copy Telegram signals to MT4 or MT5, so you never miss a trade.
-- **Universal Compatibility**: Supports any Telegram channel, from general forex trading to niche groups like **Gold Trader Mo**.
-- **Automated Signal Copying**: No more manual trade entries—sit back and let the software handle everything.
-- **Easy Setup**: User-friendly configuration makes it simple to get started in minutes.
+- [Gold (XAUUSD) channels ranked by real trades](https://telegramtometatrader.com/explore/rankings/gold?utm_medium=owned&utm_source=github&utm_campaign=marketplace)
+- [How the numbers are counted](https://telegramtometatrader.com/explore/methodology?utm_medium=owned&utm_source=github&utm_campaign=marketplace), including the conflict of interest
+- [The full channel directory](https://telegramtometatrader.com/explore?utm_medium=owned&utm_source=github&utm_campaign=marketplace)
 
-With **Telegram to MetaTrader**, you’ll be able to focus more on your strategies and less on the tedious task of trade execution.
+## Open repositories
 
----
+| Repository | What it is |
+|---|---|
+| [telegram-signal-format](https://github.com/lukacsaron/telegram-signal-format) | An open specification of how Telegram trading signals are written and how software should read them |
+| [telegram-signal-test-corpus](https://github.com/lukacsaron/telegram-signal-test-corpus) | Fixtures and a JSON Schema for testing a signal parser |
+| [ttmt-mcp](https://github.com/lukacsaron/ttmt-mcp) | Reference for the read-only MCP connector that lets Claude or ChatGPT answer questions about your own trading data |
 
-## 🔗 Visit Our New Website
+## Frequently asked questions
 
-We’ve moved! For the most up-to-date information, downloads, and support, visit:
+**How do I copy Telegram signals to MetaTrader?**
+Connect your Telegram account, connect a MetaTrader 4 or 5 account, and choose which channels trade on which account. From then on each signal in those channels is parsed and executed on its own. Setup guides: [MT5](https://telegramtometatrader.com/telegram-to-mt5?utm_medium=owned&utm_source=github&utm_campaign=marketplace) and [MT4](https://telegramtometatrader.com/telegram-to-mt4?utm_medium=owned&utm_source=github&utm_campaign=marketplace).
 
-👉 **[telegramtometatrader.com](https://telegramtometatrader.com/?utm_medium=owned&utm_source=github&utm_campaign=marketplace)** 👈
+**Do I need a VPS or to keep MetaTrader open?**
+No. TTMT runs in the cloud and connects to your broker account directly.
 
----
+**Does it work with private or VIP channels?**
+It reads the channels your own Telegram account is a member of, public or private.
 
-## 💡 Frequently Asked Questions
+**Can it trade a prop-firm account?**
+It can connect one. Whether your firm allows copied signals is the firm's rule, not ours, and [this guide covers what to check](https://telegramtometatrader.com/prop-firm-copy-trading?utm_medium=owned&utm_source=github&utm_campaign=marketplace).
 
-**Q: What is Telegram to MetaTrader?**  
-A: It’s an advanced tool that automatically copies trading signals from Telegram to your MT4 or MT5 account. It supports all formats of Telegram signals, making it a perfect fit for traders who follow channels like **Gold Trader Mo**.
+**Is this repository the source code?**
+No. TTMT is a hosted, paid service and its code is not open source. The specification, the test corpus and the connector reference linked above are.
 
-**Q: How does it work?**  
-A: Connect your MetaTrader account, configure the software, and link it to your preferred Telegram channel. Our tool will handle the rest, copying signals and executing trades automatically.
+**Is this financial advice?**
+No. TTMT executes signals you choose to follow. Trading leveraged products can lose you money quickly. Past results do not predict future results.
 
-**Q: Can I use this with any Telegram channel?**  
-A: Absolutely. Our software is compatible with any Telegram channel or group, whether it’s forex signals, crypto trading tips, or channels like **Gold Trader Mo**.
+## Links
 
----
+- Website: [telegramtometatrader.com](https://telegramtometatrader.com/?utm_medium=owned&utm_source=github&utm_campaign=marketplace)
+- Documentation: [docs.telegramtometatrader.com](https://docs.telegramtometatrader.com/?utm_medium=owned&utm_source=github&utm_campaign=marketplace)
+- Telegram: [@ttmtapp](https://t.me/ttmtapp)
 
-## 🚀 Start Automating Your Trades
-
-Ready to elevate your trading experience? Join thousands of traders who trust **Telegram to MetaTrader** to automate their strategies and gain a competitive edge.
-
-👉 **[Explore More at telegramtometatrader.com](https://telegramtometatrader.com/?utm_medium=owned&utm_source=github&utm_campaign=marketplace)** 👈
+Operated by jazzrabbit OÜ, registry code 16489902, Estonia.
