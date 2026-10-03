@@ -43,7 +43,7 @@ TTMT publishes what happened when its users copied each channel: closed trades, 
 - [How the numbers are counted](https://telegramtometatrader.com/explore/methodology?utm_medium=owned&utm_source=github&utm_campaign=marketplace), including the conflict of interest
 - [The full channel directory](https://telegramtometatrader.com/explore?utm_medium=owned&utm_source=github&utm_campaign=marketplace)
 
-Each month's figures are written up in [Signal Channels, Counted](https://telegramcopytrader.substack.com/p/gold-signal-channels-on-telegram).
+Each month's figures are written up in [Signal Channels, Counted](https://telegramcopytrader.substack.com/p/gold-signal-channels-on-telegram), and the snapshots are kept in [telegram-gold-signal-rankings](https://github.com/lukacsaron/telegram-gold-signal-rankings) and on [Kaggle](https://www.kaggle.com/datasets/ronlukcs/telegram-gold-signal-channel-rankings).
 
 ## Open repositories
 
